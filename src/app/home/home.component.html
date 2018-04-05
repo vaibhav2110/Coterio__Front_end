@@ -1,0 +1,27 @@
+<p>
+  home works!
+    <button (click)="logOut()">Logout</button>
+</p>
+
+<form novalidate [formGroup]="articleForm"
+      #aform="ngForm" (ngSubmit)="onSubmit()">
+    
+    <textarea formControlName="body" placeholder="body" rows="4"></textarea>
+    <button type="submit" [disabled]="articleForm.invalid">Submit</button>
+
+</form>
+<div *ngIf="articles">
+    
+    <div style="border: 2px solid black" *ngFor="let article of articles">
+        <button (click)="deletes(article._id)" *ngIf="article.author._id==user._id">Delete</button>
+        <button (click)="like(article._id)" *ngIf="user.favorites.indexOf(article._id) == '-1'">Like<span>{{article.favoritesCount}}</span></button>
+        <button (click)="like(article._id)" *ngIf="user.favorites.indexOf(article._id) != '-1'">Unlike<span>{{article.favoritesCount}}</span></button>
+
+        <h2>{{article.body}}</h2>
+        <p [routerLink]="['/profile',article.author._id]">{{article.author.username}}</p>
+        <div *ngFor="let comment of article.comments">
+            <p>{{comment.comment}}</p>
+            <p>{{comment.author}}</p>
+        </div>
+    </div>
+</div>

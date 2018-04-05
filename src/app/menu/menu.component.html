@@ -1,0 +1,12 @@
+<div>LogIn</div>
+
+<div *ngIf="errMess">
+    <h2>Error</h2>
+    <h4>{{errMess}}</h4>
+</div>
+
+<form novalidate #loginForm="ngForm" (ngSubmit)="onSubmit()">
+    <input placeholder="Username" type="text" [(ngModel)]="user.username" name="username" #username="ngModel" required>
+    <input placeholder="Password" type="text" [(ngModel)]="user.password" name="password" #password="ngModel" required>
+    <button type="submit" [disabled]="loginForm.form.invalid">Login</button>
+</form>
