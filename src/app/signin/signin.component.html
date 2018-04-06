@@ -1,5 +1,5 @@
-<div>LogIn</div>
-<button (click)="signup()">Sign Up</button>
+<div>SignIn</div>
+
 <div *ngIf="errMess">
     <h2>Error</h2>
     <h4>{{errMess}}</h4>
@@ -8,5 +8,7 @@
 <form novalidate #loginForm="ngForm" (ngSubmit)="onSubmit()">
     <input placeholder="Username" type="text" [(ngModel)]="user.username" name="username" #username="ngModel" required>
     <input placeholder="Password" type="text" [(ngModel)]="user.password" name="password" #password="ngModel" required>
-    <button type="submit" [disabled]="loginForm.form.invalid">Login</button>
+    <input placeholder="First name" type="text" [(ngModel)]="user.firstname" name="firstname" #firstname="ngModel" required>
+    <input placeholder="Last name" type="text" [(ngModel)]="user.lastname" name="lastname" #lastname="ngModel" required>
+    <button type="submit" [disabled]="loginForm.form.invalid">SignIn</button>
 </form>

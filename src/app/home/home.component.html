@@ -18,7 +18,8 @@
         <button (click)="like(article._id)" *ngIf="user.favorites.indexOf(article._id) != '-1'">Unlike<span>{{article.favoritesCount}}</span></button>
 
         <h2>{{article.body}}</h2>
-        <p [routerLink]="['/profile',article.author._id]">{{article.author.username}}</p>
+        <p *ngIf="article.author._id==user._id" [routerLink]="['/me']">{{article.author.username}}</p>
+        <p [hidden]="article.author._id==user._id" [routerLink]="['/profile',article.author._id]">{{article.author.username}}</p>
         <div *ngFor="let comment of article.comments">
             <p>{{comment.comment}}</p>
             <p>{{comment.author}}</p>

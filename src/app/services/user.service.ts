@@ -22,5 +22,14 @@ export class UserService {
       return this.http.get(baseURL+'users/me')
       .catch(error=> {return this.processHTTPService.handleError(error);});
   }
+  followUser(id: string): Observable<any>{
+      return this.http.post(baseURL+'users/'+id+'/follow',{})
+      .catch(error=> {return this.processHTTPService.handleError(error);});
+  }
+  unfollowUser(id: string): Observable<any>{
+      return this.http.post(baseURL+'users/'+id+'/unfollow',{})
+      .catch(error=> {return this.processHTTPService.handleError(error);});
+  }
+  
 
 }

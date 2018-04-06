@@ -1,8 +1,10 @@
-<div *ngIf="user">
+<div *ngIf="user && me">
     <h1>{{user.firstname}}</h1>
     <h1>{{user.lastname}}</h1>
     <h1>{{user.username}}</h1>
     <h1>{{user.favorites}}</h1>
     <h1>{{user.followers}}</h1>
     <h1>{{user.following}}</h1>
+    <button *ngIf="user.followers.indexOf(me._id) == '-1'"(click)="follow()">Follow</button>
+    <button *ngIf="user.followers.indexOf(me._id) != '-1'" (click)="unfollow()">Unfollow</button>
 </div>

@@ -22,6 +22,7 @@ import { UserService } from './services/user.service';
 
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { MeComponent } from './me/me.component';
+import { SigninComponent } from './signin/signin.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { MeComponent } from './me/me.component';
     MenuComponent,
     HomeComponent,
     ProfileComponent,
-    MeComponent
+    MeComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,

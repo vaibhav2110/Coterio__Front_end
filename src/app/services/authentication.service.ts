@@ -46,6 +46,12 @@ export class AuthenticationService {
         this.destroyUserCredentials();
     })
   }
+    
+  signIn(user: any){
+      return this.http.post(baseURL + 'users/signup',user)
+      .catch(error=> {return this.processHttpService.handleError(error);});
+      
+  }
 
   sendUsername(name: string){
       this.username.next(name);
